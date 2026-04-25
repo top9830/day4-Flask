@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>RAW_TYPE | NEO-BRUTALIST EDITOR</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800;900&amp;family=Work+Sans:ital,wght@0,100..900;1,100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "outline": "#7c775f",
+                        "tertiary-fixed-dim": "#c6c6c6",
+                        "on-secondary-fixed-variant": "#0d00ee",
+                        "surface-container": "#eeeeee",
+                        "surface-container-highest": "#e2e2e2",
+                        "surface-tint": "#6a5f00",
+                        "error": "#ba1a1a",
+                        "on-surface": "#1a1c1c",
+                        "on-tertiary": "#ffffff",
+                        "outline-variant": "#cdc7aa",
+                        "on-tertiary-fixed-variant": "#474747",
+                        "surface-bright": "#f9f9f9",
+                        "inverse-surface": "#2f3131",
+                        "secondary-container": "#2f32ff",
+                        "secondary": "#0c00e0",
+                        "on-primary-fixed": "#201c00",
+                        "on-tertiary-container": "#656565",
+                        "tertiary-fixed": "#e2e2e2",
+                        "primary-fixed": "#fde400",
+                        "tertiary-container": "#e4e4e4",
+                        "primary-container": "#ffe600",
+                        "on-secondary-container": "#cccdff",
+                        "on-primary-container": "#726600",
+                        "surface-container-lowest": "#ffffff",
+                        "inverse-on-surface": "#f0f1f1",
+                        "surface": "#f9f9f9",
+                        "on-background": "#1a1c1c",
+                        "primary": "#6a5f00",
+                        "inverse-primary": "#dec800",
+                        "on-surface-variant": "#4b4731",
+                        "on-tertiary-fixed": "#1b1b1b",
+                        "surface-variant": "#e2e2e2",
+                        "on-error-container": "#93000a",
+                        "secondary-fixed-dim": "#bfc2ff",
+                        "on-secondary-fixed": "#02006d",
+                        "on-error": "#ffffff",
+                        "tertiary": "#5e5e5e",
+                        "error-container": "#ffdad6",
+                        "on-primary-fixed-variant": "#504700",
+                        "on-secondary": "#ffffff",
+                        "surface-container-high": "#e8e8e8",
+                        "surface-dim": "#dadada",
+                        "surface-container-low": "#f3f3f4",
+                        "primary-fixed-dim": "#dec800",
+                        "secondary-fixed": "#e0e0ff",
+                        "on-primary": "#ffffff",
+                        "background": "#f9f9f9"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0px",
+                        "lg": "0px",
+                        "xl": "0px",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "sm": "12px",
+                        "base": "8px",
+                        "border-width": "3px",
+                        "xs": "4px",
+                        "lg": "48px",
+                        "shadow-offset": "6px",
+                        "md": "24px",
+                        "xl": "80px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Work Sans"],
+                        "headline-lg": ["Space Grotesk"],
+                        "display-2xl": ["Space Grotesk"],
+                        "headline-md": ["Space Grotesk"],
+                        "body-lg": ["Work Sans"],
+                        "display-lg": ["Space Grotesk"],
+                        "label-bold": ["Space Grotesk"]
+                    },
+                    "fontSize": {
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "headline-lg": ["48px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "display-2xl": ["120px", {"lineHeight": "100px", "letterSpacing": "-0.05em", "fontWeight": "700"}],
+                        "headline-md": ["32px", {"lineHeight": "32px", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "500"}],
+                        "display-lg": ["72px", {"lineHeight": "64px", "letterSpacing": "-0.03em", "fontWeight": "700"}],
+                        "label-bold": ["14px", {"lineHeight": "16px", "fontWeight": "700"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 700, 'GRAD' 0, 'opsz' 48;
+        }
+        body {
+            background-color: #f9f9f9;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-body-md text-on-background selection:bg-primary-container">
+<!-- TopAppBar -->
+<header class="sticky top-0 z-50 bg-white border-b-4 border-black flex justify-between items-center w-full px-8 py-6 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
+<div class="flex items-center gap-6">
+<button class="material-symbols-outlined text-black hover:bg-[#FFE600] hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all p-2 active:translate-x-[2px] active:translate-y-[2px] active:shadow-none" data-icon="menu">menu</button>
+<div class="text-2xl font-black bg-[#FFE600] border-4 border-black px-2 py-1 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] font-['Space_Grotesk'] uppercase tracking-tight">
+                RAW_TYPE
+            </div>
+</div>
+<div class="hidden md:flex gap-4">
+<nav class="flex items-center space-x-2">
+<a class="px-4 py-2 font-['Space_Grotesk'] font-bold uppercase tracking-tight text-black bg-[#FFE600] underline decoration-4" href="#">DRAFT</a>
+<a class="px-4 py-2 font-['Space_Grotesk'] font-bold uppercase tracking-tight text-black hover:bg-[#FFE600] hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all" href="#">ARCHIVE</a>
+<a class="px-4 py-2 font-['Space_Grotesk'] font-bold uppercase tracking-tight text-black hover:bg-[#FFE600] hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all" href="#">TOOLS</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-black hover:bg-[#FFE600] hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all p-2 active:translate-x-[2px] active:translate-y-[2px] active:shadow-none" data-icon="publish">publish</button>
+</div>
+</header>
+<main class="max-w-[1440px] mx-auto px-8 py-xl">
+<!-- Editor Layout -->
+<div class="grid grid-cols-12 gap-md items-start">
+<!-- Side Metadata Column (Asymmetric) -->
+<aside class="col-span-12 lg:col-span-3 space-y-md">
+<div class="bg-white border-[3px] border-black p-md shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
+<h2 class="font-headline-md text-headline-md mb-base uppercase italic">MANIFESTO</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Unfiltered. Raw. Essential. This is where the noise stops and the impact begins.</p>
+</div>
+<div class="bg-primary-container border-[3px] border-black p-md shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
+<h3 class="font-label-bold text-label-bold mb-xs uppercase tracking-widest">METADATA</h3>
+<div class="space-y-base">
+<div class="flex justify-between border-b-2 border-black/10 py-xs">
+<span class="font-bold">CHARS</span>
+<span>4,291</span>
+</div>
+<div class="flex justify-between border-b-2 border-black/10 py-xs">
+<span class="font-bold">WORDS</span>
+<span>712</span>
+</div>
+<div class="flex justify-between border-b-2 border-black/10 py-xs">
+<span class="font-bold">READ</span>
+<span>3 MIN</span>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-base">
+<div class="bg-white border-[3px] border-black p-base text-center font-bold shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:bg-black hover:text-white transition-colors cursor-pointer">
+                        EXPORT
+                    </div>
+<div class="bg-secondary-container border-[3px] border-black p-base text-center font-bold text-white shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-y-[-2px] transition-transform cursor-pointer">
+                        SHARE
+                    </div>
+</div>
+</aside>
+<!-- Main Canvas (The "YOLO" Editor) -->
+<div class="col-span-12 lg:col-span-9 relative">
+<!-- Header Overlap Design -->
+<div class="relative z-10 -mb-8 pointer-events-none">
+<h1 class="font-display-lg text-display-lg leading-none uppercase -ml-4 bg-white inline-block px-4 border-l-[12px] border-black">
+                        THE_REVOLUTION_<br/>WILL_BE_TYPED.
+                    </h1>
+</div>
+<!-- Main Editor Area -->
+<div class="bg-white border-[3px] border-black p-xl shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] min-h-[700px]">
+<!-- Toolbar (Bento Style) -->
+<div class="flex flex-wrap gap-xs mb-xl bg-surface-container p-base border-[3px] border-black">
+<button class="w-12 h-12 flex items-center justify-center bg-[#FFE600] border-2 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:translate-y-[1px] active:translate-y-[3px] active:shadow-none">
+<span class="material-symbols-outlined" data-icon="format_bold">format_bold</span>
+</button>
+<button class="w-12 h-12 flex items-center justify-center bg-white border-2 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:translate-y-[1px] active:translate-y-[3px] active:shadow-none">
+<span class="material-symbols-outlined" data-icon="format_italic">format_italic</span>
+</button>
+<button class="w-12 h-12 flex items-center justify-center bg-white border-2 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:translate-y-[1px] active:translate-y-[3px] active:shadow-none">
+<span class="material-symbols-outlined" data-icon="format_underlined">format_underlined</span>
+</button>
+<div class="w-[2px] bg-black h-12 mx-xs"></div>
+<button class="w-12 h-12 flex items-center justify-center bg-white border-2 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:translate-y-[1px] active:translate-y-[3px] active:shadow-none">
+<span class="material-symbols-outlined" data-icon="format_list_bulleted">format_list_bulleted</span>
+</button>
+<button class="w-12 h-12 flex items-center justify-center bg-white border-2 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:translate-y-[1px] active:translate-y-[3px] active:shadow-none">
+<span class="material-symbols-outlined" data-icon="image">image</span>
+</button>
+<button class="w-12 h-12 flex items-center justify-center bg-white border-2 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:translate-y-[1px] active:translate-y-[3px] active:shadow-none ml-auto">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+</div>
+<!-- Input Fields -->
+<div class="space-y-md">
+<div class="group">
+<label class="block font-label-bold text-label-bold uppercase mb-xs group-focus-within:text-secondary transition-colors">STORY_TITLE</label>
+<input class="w-full bg-white border-[3px] border-black p-md font-headline-md text-headline-md focus:bg-primary-container focus:outline-none transition-colors" type="text" value="THE_DEATH_OF_SOFT_DESIGN"/>
+</div>
+<div class="pt-base">
+<textarea class="w-full min-h-[400px] border-[3px] border-black p-md font-body-lg text-body-lg focus:outline-none focus:ring-0 focus:border-secondary transition-all leading-relaxed placeholder:text-black/30" placeholder="START_YELLING_HERE..."></textarea>
+</div>
+</div>
+</div>
+<!-- Floating Decoration Element -->
+<div class="absolute -right-12 top-1/4 -rotate-12 pointer-events-none hidden xl:block">
+<div class="bg-secondary p-8 border-4 border-black shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] text-white font-black text-4xl">
+                        NO<br/>RULES<br/>ONLY<br/>TYPE
+                    </div>
+</div>
+</div>
+</div>
+<!-- Featured Image Card (Asymmetric Layout) -->
+<section class="mt-xl grid grid-cols-1 md:grid-cols-2 gap-xl">
+<div class="relative group">
+<div class="absolute inset-0 bg-black translate-x- shadow-offset translate-y-shadow-offset"></div>
+<div class="relative bg-white border-[3px] border-black overflow-hidden aspect-video">
+<img alt="raw landscape" class="w-full h-full object-cover filter grayscale contrast-150 group-hover:scale-105 transition-transform duration-500" data-alt="dramatic high contrast monochrome landscape with sharp rocky peaks and dark moody shadows under a stormy sky" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAN4m5o_jGo9ZDrzt015EmZzQzVOt0tF_926QrVinUvaCrpTFr3B1qowVspf685sk9tJBf966uAPkmXmCqYhRCn5DSv_shcBazxnF_cxAbKuSTd8q1PhonIvlBYQ8PsgXo3M684Y9xOLNRQ3-uVIfxrk0MW4Pqp9qzL7Zto_h3D4Ku_0S9vFPEoowbugW6E7JwIoz5CKMF1OADlPVCvtGeyAIhkcjAdeXmfFLxdaGc0XixG-MMlArIofmPeXbPvwL45qCFVfdylkNY"/>
+</div>
+<div class="absolute top-4 left-4 bg-[#FFE600] border-2 border-black px-4 py-1 font-black uppercase text-sm">
+                    COVER_VISUAL
+                </div>
+</div>
+<div class="flex flex-col justify-center">
+<h3 class="font-display-lg text-display-md mb-base leading-tight uppercase">THE_VISUAL_WEIGHT</h3>
+<p class="font-body-lg text-body-lg mb-md">Brutalism isn't just about harshness; it's about the honesty of the materials. In digital UI, those materials are typography, color blocks, and layout structure.</p>
+<div class="flex gap-base">
+<div class="h-4 w-12 bg-black"></div>
+<div class="h-4 w-12 bg-primary-container"></div>
+<div class="h-4 w-12 bg-secondary-container"></div>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<footer class="md:hidden fixed bottom-0 left-0 w-full h-24 flex justify-stretch items-stretch bg-white border-t-4 border-black z-50">
+<div class="flex-1 flex flex-col items-center justify-center bg-[#FFE600] text-black h-full border-x-4 border-black">
+<span class="material-symbols-outlined" data-icon="edit_note">edit_note</span>
+<span class="font-['Space_Grotesk'] font-black text-sm uppercase">DRAFT</span>
+</div>
+<div class="flex-1 flex flex-col items-center justify-center text-black h-full border-x-2 border-transparent hover:bg-zinc-100 transition-colors">
+<span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span>
+<span class="font-['Space_Grotesk'] font-black text-sm uppercase">ARCHIVE</span>
+</div>
+<div class="flex-1 flex flex-col items-center justify-center text-black h-full border-x-2 border-transparent hover:bg-zinc-100 transition-colors">
+<span class="material-symbols-outlined" data-icon="build">build</span>
+<span class="font-['Space_Grotesk'] font-black text-sm uppercase">TOOLS</span>
+</div>
+<div class="flex-1 flex flex-col items-center justify-center text-black h-full border-x-2 border-transparent hover:bg-zinc-100 transition-colors">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-['Space_Grotesk'] font-black text-sm uppercase">USER</span>
+</div>
+</footer>
+<!-- FAB -->
+<button class="fixed bottom-32 right-8 md:bottom-8 md:right-8 w-20 h-20 bg-black text-[#FFE600] flex items-center justify-center border-[3px] border-white shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] active:translate-x-[6px] active:translate-y-[6px] active:shadow-none transition-all z-40">
+<span class="material-symbols-outlined text-4xl" data-icon="save">save</span>
+</button>
+</body></html>
