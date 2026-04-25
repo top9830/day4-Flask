@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{{ page_title }}</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=Public+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+<body class="bg-[#fcf9f8] text-[#1c1b1b] font-['Public_Sans']">
+  <header class="bg-[#fcfcfc] border-b border-stone-200 sticky top-0 z-50">
+    <div class="flex justify-between items-center w-full px-6 py-4 max-w-[680px] mx-auto">
+      <div class="flex items-center gap-4">
+        <a href="{{ back_url }}" class="text-stone-500 hover:text-[#2F4F4F] transition-colors">← Back</a>
+        <span class="text-2xl italic text-[#2F4F4F] font-['Newsreader'] tracking-tight">The Journal</span>
+      </div>
+      <button form="post-form" type="submit" class="bg-[#173838] text-white px-6 py-2 rounded-full text-sm font-semibold">{{ submit_label }}</button>
+    </div>
+  </header>
+
+  <main class="max-w-[680px] mx-auto px-6 pt-16 pb-24">
+    <form id="post-form" method="post" action="{{ form_action }}" class="flex flex-col gap-8">
+      <div class="w-full">
+        <input name="title" required class="w-full bg-transparent border-none focus:ring-0 text-5xl leading-tight p-0 placeholder:text-stone-300 font-['Newsreader']" placeholder="Enter title here..." value="{{ post['title'] if post else '' }}" />
+      </div>
+      <div class="w-full">
+        <textarea name="content" required rows="14" class="w-full min-h-[360px] bg-transparent border border-stone-200 rounded-md p-4 text-lg leading-8 placeholder:text-stone-300" placeholder="Start your story...">{{ post['content'] if post else '' }}</textarea>
+      </div>
+    </form>
+  </main>
+</body>
+</html>

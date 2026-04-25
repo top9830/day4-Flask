@@ -22,7 +22,15 @@
 
   <main class="pt-32 pb-24 px-6 max-w-4xl mx-auto">
     <article class="bg-white/30 backdrop-blur-3xl rounded-3xl p-10 border border-white/40 shadow-[0_30px_80px_-20px_rgba(103,75,181,0.25)]">
-      <p class="text-sm text-slate-600">{{ post['created_at'] }}</p>
+      <div class="flex items-center justify-between gap-4">
+        <p class="text-sm text-slate-600">{{ post['created_at'] }}</p>
+        <div class="flex items-center gap-3">
+          <a href="/posts/{{ post['id'] }}/edit" class="px-4 py-2 rounded-full bg-violet-600 text-white text-sm font-semibold">수정</a>
+          <form method="post" action="/posts/{{ post['id'] }}/delete" onsubmit="return confirm('정말 삭제할까요?');">
+            <button type="submit" class="px-4 py-2 rounded-full bg-rose-600 text-white text-sm font-semibold">삭제</button>
+          </form>
+        </div>
+      </div>
       <h1 class="mt-2 text-5xl leading-tight font-['Plus_Jakarta_Sans'] font-bold text-violet-700 break-words">{{ post['title'] }}</h1>
       <div class="mt-8 text-lg leading-8 whitespace-pre-wrap">{{ post['content'] }}</div>
     </article>
