@@ -157,6 +157,8 @@ def create_app(test_config=None):
 
     with app.app_context():
         init_db()
+        from seed import seed
+        seed()
 
     return app
 
