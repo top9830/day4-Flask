@@ -49,11 +49,38 @@ def create_app(test_config=None):
 
     @app.get("/posts")
     def posts_list():
+        page = request.args.get("page", 1, type=int)
+        per_page = 10
+        search = request.args.get("search", "").strip()
+        sort = request.args.get("sort", "newest")
+        order_map = {"newest": "id DESC", "oldest": "id ASC", "title": "title ASC"}
+        order_by = order_map.get(sort, "id DESC")
         db = get_db()
-        posts = db.execute(
-            "SELECT id, title, content, created_at FROM posts ORDER BY id DESC"
-        ).fetchall()
-        return render_template("posts_list.html", posts=posts)
+
+        if search:
+            like = f"%{search}%"
+            total = db.execute(
+                "SELECT COUNT(*) FROM posts WHERE title LIKE ? OR content LIKE ?",
+                (like, like),
+            ).fetchone()[0]
+            total_pages = max(1, (total + per_page - 1) // per_page)
+            page = min(page, total_pages)
+            offset = (page - 1) * per_page
+            posts = db.execute(
+                f"SELECT id, title, content, created_at FROM posts WHERE title LIKE ? OR content LIKE ? ORDER BY {order_by} LIMIT ? OFFSET ?",
+                (like, like, per_page, offset),
+            ).fetchall()
+        else:
+            total = db.execute("SELECT COUNT(*) FROM posts").fetchone()[0]
+            total_pages = max(1, (total + per_page - 1) // per_page)
+            page = min(page, total_pages)
+            offset = (page - 1) * per_page
+            posts = db.execute(
+                f"SELECT id, title, content, created_at FROM posts ORDER BY {order_by} LIMIT ? OFFSET ?",
+                (per_page, offset),
+            ).fetchall()
+
+        return render_template("posts_list.html", posts=posts, page=page, total_pages=total_pages, search=search, sort=sort)
 
     def get_post_or_404(post_id):
         db = get_db()
