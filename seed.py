@@ -11,6 +11,14 @@ def seed():
 
     conn = sqlite3.connect(DB_PATH)
     db = conn.cursor()
+    db.execute(
+        """CREATE TABLE IF NOT EXISTS posts (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            title TEXT NOT NULL,
+            content TEXT NOT NULL,
+            created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
+        )"""
+    )
 
     added = 0
     for it in items:
